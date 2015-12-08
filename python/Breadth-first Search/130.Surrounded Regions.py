@@ -1,4 +1,6 @@
 # coding=utf-8
+import collections
+
 
 class TreeNode(object):
     def __init__(self, x):
@@ -37,13 +39,13 @@ class Solution(object):
             t = queue.popleft()
             if board[t[0]][t[1]] == 'O': board[t[0]][t[1]] = '$'
             visited[t[0]][t[1]] = True
-            if t[0] + 1 < lineNum and board[t[0] + 1][t[1]] == 'O' and visited[t[0] + 1][t[1]] == False:
+            if t[0] + 1 < lineNum and board[t[0] + 1][t[1]] == 'O' and visited[t[0] + 1][t[1]] == False:  # 下
                 queue.append((t[0] + 1, t[1]))
-            if t[0] - 1 >= 0 and board[t[0] - 1][t[1]] == 'O' and visited[t[0] - 1][t[1]] == False:
+            if t[0] - 1 >= 0 and board[t[0] - 1][t[1]] == 'O' and visited[t[0] - 1][t[1]] == False:       # 上
                 queue.append((t[0] - 1, t[1]))
-            if t[1] + 1 < colNum and board[t[0]][t[1] + 1] == 'O' and visited[t[0]][t[1] + 1] == False:
+            if t[1] + 1 < colNum and board[t[0]][t[1] + 1] == 'O' and visited[t[0]][t[1] + 1] == False:   # 右
                 queue.append((t[0], t[1] + 1))
-            if t[1] - 1 >= 0 and board[t[0]][t[1] - 1] == 'O' and visited[t[0]][t[1] - 1] == False:
+            if t[1] - 1 >= 0 and board[t[0]][t[1] - 1] == 'O' and visited[t[0]][t[1] - 1] == False:       # 左
                 queue.append((t[0], t[1] - 1))
         for i in xrange(lineNum):
             for j in xrange(colNum):
