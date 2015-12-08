@@ -22,12 +22,12 @@ class Solution(object):
         map = [[] for x in range(numCourses)]      # 与该节点连通的其他节点
         indegree = [0 for x in range(numCourses)]  # 节点的入度
         res = []
-        for p in neighbor:
-            if p[0] not in map[p[1]]:
+        for p in neighbor:                         # 根据给定的邻接条件，建立图的节点的连接
+            if p[0] not in map[p[1]]:              
                 indegree[p[0]] += 1
                 map[p[1]].append(p[0])
         st = []
-        for i in range(numCourses):
+        for i in range(numCourses):                # 找出入度为零的节点，加入队列
             if indegree[i] == 0:
                 st.append(i)
         count = 0
