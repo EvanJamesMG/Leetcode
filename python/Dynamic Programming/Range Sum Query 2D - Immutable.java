@@ -3,7 +3,7 @@ public class NumMatrix {
     /*
         https://leetcode.com/course/chapters/leetcode-101/range-sum-query-2d-immutable/
     
-        Caching smarter ¨C O(1) time per query, O(mn) space
+        Caching smarter ¨C O(mn) time per query, O(mn) space
     */
     
     private int[][] dp;
