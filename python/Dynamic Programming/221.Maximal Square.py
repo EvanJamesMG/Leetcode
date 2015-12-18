@@ -1,14 +1,22 @@
+'''
+Given a 2D binary matrix filled with 0's and 1's, find the largest square containing all 1's and return its area.
+
+For example, given the following matrix:
+
+1 0 1 0 0
+1 0 1 1 1
+1 1 1 1 1
+1 0 0 1 0
+Return 4.
+'''
 # coding=utf-8
 import sys
-
 
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
         self.left = None
         self.right = None
-
-
 class ListNode(object):
     def __init__(self, x):
         self.val = x
@@ -51,7 +59,6 @@ class Solution(object):
                 mymax = max(mymax, dp[i][j])
         return mymax * mymax
 
-
-if __name__ == "__main__":
-    result = Solution().maximalSquare(["1111","1111","1111"])
-    print(result)
+# if __name__ == "__main__":
+#     result = Solution().maximalSquare(["1111","1111","1111"])
+#     print(result)
