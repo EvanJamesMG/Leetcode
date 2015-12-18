@@ -1,6 +1,12 @@
+'''
+You are a professional robber planning to rob houses along a street.
+
+Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
+
+Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police.
+'''
 # coding=utf-8
 import collections
-
 
 class TreeNode(object):
     def __init__(self, x):
@@ -43,12 +49,6 @@ class Solution(object):
             dp[i] = max(dp[i - 1], dp[i - 2] + num[i-1])  #num[i]与上面的解释对应，但是数组是从0开始的，所以这里通过i-1与之对应
         return dp[size]
 
-
-
-# Your Codec object will be instantiated and called as such:
-# codec = Codec()
-# codec.deserialize(codec.serialize(root))
-#
-if __name__ == "__main__":
-    result = Solution().shell_sort([99, 98, 97, -100, -200, 1])
-    print(result)
+# if __name__ == "__main__":
+#     result = Solution().shell_sort([99, 98, 97, -100, -200, 1])
+#     print(result)
