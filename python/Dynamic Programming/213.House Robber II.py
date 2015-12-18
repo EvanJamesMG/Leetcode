@@ -1,14 +1,24 @@
+'''
+Note: This is an extension of House Robber.
+
+After robbing those houses on that street, the thief has found himself a new place for his thievery so that he will not get too much attention. 
+
+This time, all houses at this place are arranged in a circle. That means the first house is the neighbor of the last one.
+
+Meanwhile, the security system for these houses remain the same as for those in the previous street.
+
+Given a list of non-negative integers representing the amount of money of each house, 
+
+determine the maximum amount of money you can rob tonight without alerting the police.
+'''
 # coding=utf-8
 import sys
-
 
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
         self.left = None
         self.right = None
-
-
 class ListNode(object):
     def __init__(self, x):
         self.val = x
@@ -54,7 +64,6 @@ class Solution(object):
             dp[i] = max(dp[i - 1], dp[i - 2] + num[i-1])
         return dp[size]
 
-
-if __name__ == "__main__":
-    result = Solution().nthUglyNumber(12)
-    print(result)
+# if __name__ == "__main__":
+#     result = Solution().nthUglyNumber(12)
+#     print(result)
