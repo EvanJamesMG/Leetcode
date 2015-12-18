@@ -55,20 +55,11 @@ class Solution:
         dp[0] = 1
         dp[1] = 0 if s[0] == '0' else 1
         for i in xrange(2, len(s) + 1):
-            if s[i-1] != '0': dp[i] += dp[i-1]
-            if 10 <= int(s[i-2:i]) <= 26: dp[i] += dp[i-2]
+            if s[i-1] != '0': dp[i] += dp[i-1]             #注意这里s[i-1]实则表示数组中的第i个数字，因为数组是从0开始的
+            if 10 <= int(s[i-2:i]) <= 26: dp[i] += dp[i-2] #同理s[i-2：i]实则表示数组中的第i-1到i之间的数字，因为数组是从0开始的
         return dp[len(s)]
 
 
-# Your NumArray object will be instantiated and called as such:
-# numArray = NumArray(nums)
-# numArray.sumRange(0, 1)
-# numArray.sumRange(1, 2)
-
-# Your Codec object will be instantiated and called as such:
-# codec = Codec()
-# codec.deserialize(codec.serialize(root))
-#
 if __name__ == "__main__":
     result = Solution().numSquares(12)
     print(result)
