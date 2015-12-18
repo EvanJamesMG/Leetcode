@@ -1,19 +1,27 @@
+'''
+Given a triangle, find the minimum path sum from top to bottom. Each step you may move to adjacent numbers on the row below.
+
+For example, given the following triangle
+[
+     [2],
+    [3,4],
+   [6,5,7],
+  [4,1,8,3]
+]
+The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).
+'''
 # coding=utf-8
 import sys
-
 
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
         self.left = None
         self.right = None
-
-
 class ListNode(object):
     def __init__(self, x):
         self.val = x
         self.next = None
-
 
 '''
 若不考虑空间复杂度可以从上到下进行动态规划求值
@@ -41,16 +49,6 @@ class Solution(object):
                 res[j] = triangle[i][j] + min(res[j], res[j + 1])
         return res[0]
 
-
-# Your NumArray object will be instantiated and called as such:
-# numArray = NumArray(nums)
-# numArray.sumRange(0, 1)
-# numArray.sumRange(1, 2)
-
-# Your Codec object will be instantiated and called as such:
-# codec = Codec()
-# codec.deserialize(codec.serialize(root))
-#
 if __name__ == "__main__":
     result = Solution().nthUglyNumber(12)
     print(result)
