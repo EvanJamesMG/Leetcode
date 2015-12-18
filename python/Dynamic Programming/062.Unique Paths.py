@@ -1,3 +1,10 @@
+'''
+A robot is located at the top-left corner of a m x n grid (marked 'Start' in the diagram below).
+
+The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked 'Finish' in the diagram below).
+
+How many possible unique paths are there?
+'''
 # coding=utf-8
 import collections
 
@@ -14,7 +21,6 @@ class ListNode(object):
         self.val = x
         self.next = None
 
-
 '''
 *  动态规划：
 *
@@ -24,7 +30,6 @@ class ListNode(object):
 *  所以可以得到dp递推方程为dp[i][j] = dp[i][j-1] + dp[i-1][j]。所以可以从(0,0)开始不断计算到右侧和下方的格子的路径总数，
 *  直到算出dp[m-1][n-1]，算法时间复杂度为O（mn），空间复杂度也为O（mn）。
 '''
-
 
 class Solution(object):
     def uniquePaths(self, m, n):
