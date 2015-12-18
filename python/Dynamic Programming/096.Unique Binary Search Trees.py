@@ -1,7 +1,16 @@
 # coding=utf-8
-# Definition for singly-linked list.
 '''
-深度优先搜索
+Given n, how many structurally unique BST's (binary search trees) that store values 1...n?
+
+For example,
+Given n = 3, there are a total of 5 unique BST's.
+
+   1         3     3      2      1
+    \       /     /      / \      \
+     3     2     1      1   3      2
+    /     /       \                 \
+   2     1         2                 3
+
 '''
 class TreeNode(object):
     def __init__(self, x):
@@ -43,19 +52,7 @@ class Solution(object):
             rec[i] = tem
         return rec[n]
 
-
-# Your Codec object will be instantiated and called as such:
-# codec = Codec()
-# codec.deserialize(codec.serialize(root))
-#
 # if __name__ == "__main__":
-#
-#     mnode = ListNode(3)
-#     mnode.next = ListNode(5)
-#     mnode.next.next = ListNode(6)
-#     mnode.next.next.next = ListNode(7)
-#     mnode.next.next.next.next = ListNode(8)
-#
 #     result = Solution().rotateRight(mnode, 6)
 #     print(result.val)
 #
