@@ -1,13 +1,17 @@
+'''
+Find the contiguous subarray within an array (containing at least one number) which has the largest product.
+
+For example, given the array [2,3,-2,4],
+the contiguous subarray [2,3] has the largest product = 6.
+'''
 # coding=utf-8
 import sys
-
 
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
         self.left = None
         self.right = None
-
 
 class ListNode(object):
     def __init__(self, x):
@@ -49,7 +53,6 @@ class Solution(object):
 
         return maxProduct
 
-
-if __name__ == "__main__":
-    result = Solution().nthUglyNumber(12)
-    print(result)
+# if __name__ == "__main__":
+#     result = Solution().nthUglyNumber(12)
+#     print(result)
