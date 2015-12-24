@@ -1,12 +1,12 @@
 /*
- N-Queens ÎÊÌâµÄ±äĞÎ£¬Ö»ÊÇÍ³¼Æ½á¹ûµÄÖÖÀà£¬´úÂë¸ü¼Ó¼òµ¥ÁË
+ N-Queens é—®é¢˜çš„å˜å½¢ï¼Œåªæ˜¯ç»Ÿè®¡ç»“æœçš„ç§ç±»ï¼Œä»£ç æ›´åŠ ç®€å•äº†
 */
 public class Solution 
 {
     private int res=0;
     public int totalNQueens(int n) 
     {  
-        int[] loc = new int[n];  //¼ÇÂ¼»Êºó´¦ÓÚÄÄÒ»ÁĞ£¬ÁĞÊı×é
+        int[] loc = new int[n];  //è®°å½•çš‡åå¤„äºå“ªä¸€åˆ—ï¼Œåˆ—æ•°ç»„
         dfs(loc,0,n);  
         return res;  
     }  
@@ -26,10 +26,10 @@ public class Solution
     }  
     public boolean isValid(int[] loc, int cur)
     {  
-        for(int i=0;i<cur;i++)//Ö»ĞèÒª±£Ö¤ÓëÄÇĞ©ÒÑ¾­¾ÍÎ»µÄ»Êºó²»³åÍ»¼´¿É  
+        for(int i=0;i<cur;i++)//åªéœ€è¦ä¿è¯ä¸é‚£äº›å·²ç»å°±ä½çš„çš‡åä¸å†²çªå³å¯  
         {  
-            if(loc[i]==loc[cur]||Math.abs(loc[i]-loc[cur])==(cur-i)) //ÑéÖ¤¶Ô½ÇÏß£¬¸ù¾İ¶Ô½ÇÏßĞÔÖÊ£¬³¤ £½ ¿í 
-                                                                     //ÄÇÃ´ÎÒÃÇ²»ÄÑĞ´³ö Math.abs(loc[i] - loc[cur]) == (cur - i) 
+            if(loc[i]==loc[cur]||Math.abs(loc[i]-loc[cur])==(cur-i)) //éªŒè¯å¯¹è§’çº¿ï¼Œæ ¹æ®å¯¹è§’çº¿æ€§è´¨ï¼Œé•¿ ï¼ å®½ 
+                                                                     //é‚£ä¹ˆæˆ‘ä»¬ä¸éš¾å†™å‡º Math.abs(loc[i] - loc[cur]) == (cur - i) 
                 return false;  
         }  
         return true;  
