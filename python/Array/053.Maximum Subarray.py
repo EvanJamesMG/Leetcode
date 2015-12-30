@@ -1,21 +1,9 @@
-# coding=utf-8
-import collections
-
-
-class TreeNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
-
-
-class ListNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
-
 '''
+Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
+
+For example, given the array [−2,1,−3,4,−1,2,1,−5,4],
+the contiguous subarray [4,−1,2,1] has the largest sum = 6.
+
 时间 O(n)   空间O(1)
 
 扫描一遍数组，若当前i，前面i-1的结果若为负的话，新序列就从当前A[i]开始算起了，不然就将当前A[i]附加上去。
@@ -36,12 +24,3 @@ class Solution(object):
                 sum += nums[i]
             mymax = max(mymax, sum)
         return mymax
-
-
-# Your Codec object will be instantiated and called as such:
-# codec = Codec()
-# codec.deserialize(codec.serialize(root))
-#
-if __name__ == "__main__":
-    result = Solution().maxSubArray( [99,98,97,-100,-200,1])
-    print(result)
