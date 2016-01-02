@@ -1,6 +1,14 @@
 # coding=utf-8
 import collections
+'''
+Suppose a sorted array is rotated at some pivot unknown to you beforehand.
 
+(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).
+
+Find the minimum element.
+
+You may assume no duplicate exists in the array.
+'''
 
 class TreeNode(object):
     def __init__(self, x):
@@ -30,9 +38,9 @@ class Solution:
         low, high = 0, size - 1
         while low <= high:
             mid = (low + high) / 2
-            if num[mid] <= num[high]: #min位于上升沿左侧
+            if num[mid] <= num[high]: 
                 high = mid - 1
-            else: #min位于左侧上升沿与右侧上升沿之间
+            else:
                 low = mid + 1
             ans = min(ans, num[mid])
         return ans
