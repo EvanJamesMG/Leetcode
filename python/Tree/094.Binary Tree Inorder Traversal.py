@@ -1,6 +1,17 @@
 # coding=utf-8
 # Definition for singly-linked list.
+'''
+Given a binary tree, return the inorder traversal of its nodes' values.
 
+For example:
+Given binary tree {1,#,2,3},
+   1
+    \
+     2
+    /
+   3
+return [1,3,2].
+'''
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
