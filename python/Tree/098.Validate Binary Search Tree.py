@@ -1,8 +1,15 @@
 # coding=utf-8
+'''
+Given a binary tree, determine if it is a valid binary search tree (BST).
+
+Assume a BST is defined as follows:
+
+The left subtree of a node contains only nodes with keys less than the node's key.
+The right subtree of a node contains only nodes with keys greater than the node's key.
+Both the left and right subtrees must also be binary search trees.
+'''
+
 # Definition for singly-linked list.
-'''
-深度优先搜索
-'''
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
@@ -14,6 +21,8 @@ class ListNode(object):
         self.next = None
 
 '''
+深度优先搜索
+
 对于这棵树而言，怎样进行递归呢？root.left这棵树的所有节点值都小于root，root.right这棵树的所有节点值都大于root。
 然后依次递归下去就可以了。例如：如果这棵树是二叉查找树，那么左子树的节点值一定处于（负无穷，4）这个范围内，
 右子树的节点值一定处于（4，正无穷）这个范围内。思路到这一步，程序就不难写了。
