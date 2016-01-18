@@ -1,8 +1,12 @@
 # coding=utf-8
+'''
+Given inorder and postorder traversal of a tree, construct the binary tree.
+
+Note:
+You may assume that duplicates do not exist in the tree.
+'''
+
 # Definition for singly-linked list.
-'''
-深度优先搜索
-'''
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
