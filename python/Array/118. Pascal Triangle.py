@@ -46,8 +46,8 @@ class Solution(object):
             list = [[] for i in range(numRows)]
             for i in range(0, numRows):
                 list[i] = [1 for j in range(i + 1)] #先把每一行都填上一
-            for i in range(2, numRows):
-                for j in range(1, i):
+            for i in range(2, numRows): # 从第三行开始
+                for j in range(1, i):   # 从第三行第二列到倒数第二列
                     list[i][j] = list[i - 1][j - 1] + list[i - 1][j]  #中间部分另外计算
             return list
 
