@@ -66,11 +66,8 @@ class Solution(object):
                 if board[i][j] == 'O': board[i][j] = 'X'
                 if board[i][j] == '$': board[i][j] = 'O'
 
-# Your Codec object will be instantiated and called as such:
-# codec = Codec()
-# codec.deserialize(codec.serialize(root))
-#
-if __name__ == "__main__":
 
-    result = Solution().canFinish(3,[[0,2],[2,1],[1,0]])
-    print(result)
+# if __name__ == "__main__":
+
+#     result = Solution().canFinish(3,[[0,2],[2,1],[1,0]])
+#     print(result)
