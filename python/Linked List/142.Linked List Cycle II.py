@@ -25,26 +25,26 @@ class ListNode(object):
 　　　　   则slow从head走到起点走了K，而fast从相遇点出发也走了K，而fast向前走了距离K后到了哪里呢？由于K=（n-1）*L+（L-M），所以fast转了n-1圈，再走L-M，也到了起点。这样起点就找到了。
 '''
 class Solution(object):
-    def deleteDuplicates(self, head):
+    def detectCycle(self, head):
         """
         :type head: ListNode
         :rtype: ListNode
         """
-        if head is None:
+        if head == None or head.next == None:
             return None
-
-        dummy = ListNode(0)
-        dummy.next = head
-        node = dummy
-        while node.next is not None and node.next.next is not None:
-            if node.next.val == node.next.next.val:
-                val_prev = node.next.val
-                while node.next is not None and node.next.val == val_prev:
-                    node.next = node.next.next
-            else:
-                node = node.next
-
-        return dummy.next
+        slow = fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if fast == slow:
+                break
+        if slow == fast:
+            slow = head
+            while slow != fast:
+                slow = slow.next
+                fast = fast.next
+            return slow
+        return None 
 
 # if __name__ == "__main__":
 #
