@@ -30,20 +30,14 @@ class Solution(object):
         :type postorder: List[int]
         :rtype: TreeNode
         """
-        hmap = {}
-        if (inorder ==None and postorder ==None) or (len(inorder) == 0 and len(postorder) ==0):
+        if len(inorder) == 0:
             return None
-        for i in range(len(inorder)):
-            hmap[inorder[i]] = i
-        return self.mhelp(inorder, 0, len(inorder)-1, postorder, 0, len(postorder)-1, hmap)
-
-    def mhelp(self, inorder, inL, inR, postorder, pL, pR, hmap):
-        if inL > inR or pL > pR:
-            return None
-        root = TreeNode(postorder[pR])
-        index = hmap.get(root.val)
-        root.left = self.mhelp(inorder, inL, index-1, postorder, pL, pL+index-inL-1, hmap)
-        root.right = self.mhelp(inorder, index+1, inR, postorder, pR-inR+index,pR-1, hmap)
+        if len(inorder) == 1:
+            return TreeNode(inorder[0])
+        root = TreeNode(postorder[len(postorder) - 1])
+        index = inorder.index(postorder[len(postorder) - 1])
+        root.left = self.buildTree(inorder[ 0 : index ], postorder[ 0 : index ])
+        root.right = self.buildTree(inorder[ index + 1 : len(inorder) ], postorder[ index : len(postorder) - 1 ])
         return root
 
 # Your Codec object will be instantiated and called as such:
