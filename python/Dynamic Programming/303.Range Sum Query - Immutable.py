@@ -1,6 +1,19 @@
 # coding=utf-8
-import collections
+'''
+Given an integer array nums, find the sum of the elements between indices i and j (i ≤ j), inclusive.
 
+Example:
+Given nums = [-2, 0, 3, -5, 2, -1]
+
+sumRange(0, 2) -> 1
+sumRange(2, 5) -> -1
+sumRange(0, 5) -> -3
+Note:
+You may assume that the array does not change.
+There are many calls to sumRange function.
+'''
+
+import collections
 
 class TreeNode(object):
     def __init__(self, x):
@@ -38,18 +51,3 @@ class NumArray(object):
         :rtype: int
         """
         return self.sums[j + 1] - self.sums[i+1-1]
-
-
-
-# Your NumArray object will be instantiated and called as such:
-# numArray = NumArray(nums)
-# numArray.sumRange(0, 1)
-# numArray.sumRange(1, 2)
-
-# Your Codec object will be instantiated and called as such:
-# codec = Codec()
-# codec.deserialize(codec.serialize(root))
-#
-if __name__ == "__main__":
-    result = Solution().shell_sort([99, 98, 97, -100, -200, 1])
-    print(result)
