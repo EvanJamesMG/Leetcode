@@ -30,21 +30,14 @@ class Solution(object):
         :type inorder: List[int]
         :rtype: TreeNode
         """
-        if (preorder == None and inorder == None) or (len(preorder)==0 and len(inorder)==0):
+        if len(inorder) == 0:
             return None
-        mhash = {}
-        for i in range (len(inorder)):
-            mhash[inorder[i]] =i
-
-        return self.mhelp(preorder, 0, len(preorder)-1, inorder, 0, len(preorder)-1, mhash)
-
-    def mhelp(self, preorder, pL, pR, inorder, inL, inR, mhash):
-        if pL > pR or inL > inR :
-            return None
-        root = TreeNode(preorder[pL])
-        index = mhash.get(root.val)
-        root.left = self.mhelp(preorder, pL+1, pR - (inR - index), inorder, inL, index-1, mhash)
-        root.right = self.mhelp(preorder, pL+1 + index - inL, pR, inorder, index + 1, inR, mhash)
+        if len(inorder) == 1:
+            return TreeNode(inorder[0])
+        root = TreeNode(preorder[0])
+        rootPos = inorder.index(preorder[0])
+        root.left = self.buildTree(preorder[1 : 1 + rootPos], inorder[ : rootPos])
+        root.right = self.buildTree(preorder[rootPos + 1 : ], inorder[rootPos + 1 : ])
         return root
 
 
