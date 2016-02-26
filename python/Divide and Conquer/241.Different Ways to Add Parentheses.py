@@ -1,20 +1,25 @@
 # coding=utf-8
-import collections
+'''
+Given a string of numbers and operators, return all possible results from computing all the different possible ways to group numbers and operators. The valid operators are +, - and *.
+
+Example 1
+Input: "2-1-1".
+
+((2-1)-1) = 0
+(2-(1-1)) = 2
+Output: [0, 2]
 
 
-class TreeNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+Example 2
+Input: "2*3-4*5"
 
-
-class ListNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
-
+(2*(3-(4*5))) = -34
+((2*3)-(4*5)) = -14
+((2*(3-4))*5) = -10
+(2*((3-4)*5)) = -10
+(((2*3)-4)*5) = 10
+Output: [-34, -14, -10, -10, 10]
+'''
 '''
 http://bookshadow.com/weblog/2015/07/27/leetcode-different-ways-add-parentheses/
 
