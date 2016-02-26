@@ -1,6 +1,24 @@
 # coding=utf-8
-# Definition for singly-linked list.
+'''
+Given a binary tree and a sum, find all root-to-leaf paths where each path's sum equals the given sum.
 
+For example:
+Given the below binary tree and sum = 22,
+              5
+             / \
+            4   8
+           /   / \
+          11  13  4
+         /  \    / \
+        7    2  5   1
+return
+[
+   [5,4,11,2],
+   [5,8,4,5]
+]
+'''
+
+# Definition for singly-linked list.
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
@@ -30,19 +48,3 @@ class Solution(object):
         if root==None: return []
         dfs(root, root.val, [root.val])
         return res
-
-# Your Codec object will be instantiated and called as such:
-# codec = Codec()
-# codec.deserialize(codec.serialize(root))
-#
-# if __name__ == "__main__":
-#
-#     mnode = ListNode(3)
-#     mnode.next = ListNode(5)
-#     mnode.next.next = ListNode(6)
-#     mnode.next.next.next = ListNode(7)
-#     mnode.next.next.next.next = ListNode(8)
-#
-#     result = Solution().rotateRight(mnode, 6)
-#     print(result.val)
-#
