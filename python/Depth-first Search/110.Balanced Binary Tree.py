@@ -1,5 +1,10 @@
 # coding=utf-8
+'''
+Given a binary tree, determine if it is height-balanced.
 
+For this problem, a height-balanced binary tree is defined as 
+a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
+'''
 # class TreeNode(object):
 #     def __init__(self, x):
 #         self.val = x
@@ -32,10 +37,6 @@ class Solution(object):
             return self.isBalanced( root.left ) and self.isBalanced( root.right )
         else:
             return False
-# Your Codec object will be instantiated and called as such:
-# codec = Codec()
-# codec.deserialize(codec.serialize(root))
-#
 # if __name__ == "__main__":
 #
 #     result = Solution().kmp_match("BBC ABCDAB ABCDABCDABDE", "BCDABCD")
