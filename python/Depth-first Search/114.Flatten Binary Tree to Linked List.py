@@ -1,4 +1,28 @@
 # coding=utf-8
+'''
+Given a binary tree, flatten it to a linked list in-place.
+
+For example,
+Given
+
+         1
+        / \
+       2   5
+      / \   \
+     3   4   6
+The flattened tree should look like:
+   1
+    \
+     2
+      \
+       3
+        \
+         4
+          \
+           5
+            \
+             6
+'''
 # Definition for singly-linked list.
 
 class TreeNode(object):
@@ -21,7 +45,6 @@ class Solution(object):
         :type root: TreeNode
         :rtype: void Do not return anything, modify root in-place instead.
         """
-
         if root == None:
             return
         self.flatten(root.left)
@@ -35,19 +58,3 @@ class Solution(object):
         p.right = root.right
         root.right = root.left
         root.left = None
-
-# Your Codec object will be instantiated and called as such:
-# codec = Codec()
-# codec.deserialize(codec.serialize(root))
-#
-# if __name__ == "__main__":
-#
-#     mnode = ListNode(3)
-#     mnode.next = ListNode(5)
-#     mnode.next.next = ListNode(6)
-#     mnode.next.next.next = ListNode(7)
-#     mnode.next.next.next.next = ListNode(8)
-#
-#     result = Solution().rotateRight(mnode, 6)
-#     print(result.val)
-#
