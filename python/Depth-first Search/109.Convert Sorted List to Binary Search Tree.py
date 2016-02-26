@@ -1,5 +1,7 @@
 # coding=utf-8
-
+'''
+Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST.
+'''
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
@@ -35,12 +37,3 @@ class Solution(object):
         root.right = self.sortedArrayToBST(arr[length/2+1:])
         return root
 
-# Your Codec object will be instantiated and called as such:
-# codec = Codec()
-# codec.deserialize(codec.serialize(root))
-#
-# if __name__ == "__main__":
-#
-#     result = Solution().kmp_match("BBC ABCDAB ABCDABCDABDE", "BCDABCD")
-#     print(result)
-#
