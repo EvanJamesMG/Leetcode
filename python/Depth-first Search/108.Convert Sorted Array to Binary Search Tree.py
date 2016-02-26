@@ -1,4 +1,7 @@
 # coding=utf-8
+'''
+Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
+'''
 # Definition for singly-linked list.
 
 class TreeNode(object):
@@ -34,19 +37,3 @@ class Solution(object):
         root.left = self.sortedArrayToBST(arr[:length/2])
         root.right = self.sortedArrayToBST(arr[length/2+1:])
         return root
-
-# Your Codec object will be instantiated and called as such:
-# codec = Codec()
-# codec.deserialize(codec.serialize(root))
-#
-# if __name__ == "__main__":
-#
-#     mnode = ListNode(3)
-#     mnode.next = ListNode(5)
-#     mnode.next.next = ListNode(6)
-#     mnode.next.next.next = ListNode(7)
-#     mnode.next.next.next.next = ListNode(8)
-#
-#     result = Solution().rotateRight(mnode, 6)
-#     print(result.val)
-#
