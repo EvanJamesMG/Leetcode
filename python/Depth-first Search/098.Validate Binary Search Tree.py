@@ -1,4 +1,15 @@
 # coding=utf-8
+'''
+Given a binary tree, determine if it is a valid binary search tree (BST).
+
+Assume a BST is defined as follows:
+
+The left subtree of a node contains only nodes with keys less than the node's key.
+The right subtree of a node contains only nodes with keys greater than the node's key.
+Both the left and right subtrees must also be binary search trees.
+'''
+
+
 # Definition for singly-linked list.
 '''
 深度优先搜索
@@ -33,19 +44,3 @@ class Solution(object):
         if root.val <= min or root.val >= max:
             return False
         return self.ValidBST(root.left, min, root.val) and self.ValidBST(root.right, root.val, max)
-
-# Your Codec object will be instantiated and called as such:
-# codec = Codec()
-# codec.deserialize(codec.serialize(root))
-#
-# if __name__ == "__main__":
-#
-#     mnode = ListNode(3)
-#     mnode.next = ListNode(5)
-#     mnode.next.next = ListNode(6)
-#     mnode.next.next.next = ListNode(7)
-#     mnode.next.next.next.next = ListNode(8)
-#
-#     result = Solution().rotateRight(mnode, 6)
-#     print(result.val)
-#
