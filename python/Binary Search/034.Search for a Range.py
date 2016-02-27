@@ -36,6 +36,7 @@ class Solution(object):
         """
         left = 0
         right = len(A) - 1
+        result = [-1,-1]
         while left <= right:
             mid = (left + right) / 2
             if A[mid] > target:
@@ -43,21 +44,19 @@ class Solution(object):
             elif A[mid] < target:
                 left = mid + 1
             else:
-                list = [0, 0]
-                if A[right] == target: list[1] = right  # 防止边界取不到的情况 right正好是最后一个数时，（if A[i] != target: list[1] = i - 1; break）用不上，右边界无法赋值，因此要提前在这里赋值
-
-                for i in range(mid, right + 1):
-                    if A[i] != target: list[1] = i - 1; break
-                for i in range(left, mid + 1):
-                    if A[i] == target: list[0] = i; break
-                return list
-        return [-1, -1]
-
-
-# Your Codec object will be instantiated and called as such:
-# codec = Codec()
-# codec.deserialize(codec.serialize(root))
-#
-if __name__ == "__main__":
-    result = Solution().canFinish(3, [[0, 2], [2, 1], [1, 0]])
-    print(result)
+                result[0] = mid  
+                result[1] = mid  
+                  
+                i = mid - 1  
+                while i >= 0 and A[i] == target:  
+                    result[0] = i  
+                    i -= 1  
+                  
+                i = mid + 1  
+                while i < len(A) and A[i] == target:  
+                    result[1] = i  
+                    i += 1  
+                    
+                break
+                
+        return result
