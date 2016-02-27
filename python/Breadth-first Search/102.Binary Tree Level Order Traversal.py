@@ -51,11 +51,11 @@ class Solution(object):
             temlist = []
             for i in range(quelength):
                 temroot = que.get()
+                temlist.append(temroot.val)
                 if temroot.left is not None:
                     que.put(temroot.left)
                 if temroot.right is not None:
                     que.put(temroot.right)
-                temlist.append(temroot.val)
             res.append(temlist)
         return res
 
