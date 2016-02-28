@@ -54,7 +54,7 @@ class Solution:
 
             if nums[left] <= nums[mid]:#此时中间指针指向左递增子数组中元素，目标值在右递增字数组的第一个，因此令左指针项向右缩进
                 left = mid
-            elif nums[mid] <= nums[right]:#此时中间指针指向右递增子数组中元素，目标值在右递增字数组的第一个，因此令右指针项向左缩进
+            else:#此时中间指针指向右递增子数组中元素，目标值在右递增字数组的第一个，因此令右指针项向左缩进
                 right = mid
         return nums[mid]
 
