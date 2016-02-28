@@ -25,6 +25,7 @@ class ListNode(object):
 
 '''
 二分查找  O(logn)
+注意此题不包含重复元素
 
 '''
 
@@ -33,24 +34,27 @@ class Solution:
     # @param num, a list of integer
     # @return an integer
     def findMin(self, num):
-        ans = num[0]
-        size = len(num)
-        low, high = 0, size - 1
-        while low <= high:
-            mid = (low + high) / 2
-            if num[mid] <= num[high]: 
-                high = mid - 1
-            else:
-                low = mid + 1
-            ans = min(ans, num[mid])
-        return ans
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if nums == None or len(nums) == 0:
+            return 0
+        if len(nums)==1:
+            return nums[0]
+        if nums[0] < nums[-1]:#数组未进行旋转的情况（旋转后的数组中第一个元素总是大于等于最后一个元素 （eg:34512））
+            return nums[0]
+        left = 0
+        right = len(nums) - 1
+        while left <= right:
+            if right - left == 1:#结束状态，此时两指针的距离为1，左指针指向第一个递增子数组的结尾，右指针指向第二个递增字数组的开始
+                mid = right
+                break
+            mid = (left + right) / 2
 
+            if nums[left] <= nums[mid]:#此时中间指针指向左递增子数组中元素，目标值在右递增字数组的第一个，因此令左指针项向右缩进
+                left = mid
+            elif nums[mid] <= nums[right]:#此时中间指针指向右递增子数组中元素，目标值在右递增字数组的第一个，因此令右指针项向左缩进
+                right = mid
+        return nums[mid]
 
-
-# Your Codec object will be instantiated and called as such:
-# codec = Codec()
-# codec.deserialize(codec.serialize(root))
-#
-if __name__ == "__main__":
-    result = Solution().canFinish(3, [[0, 2], [2, 1], [1, 0]])
-    print(result)
