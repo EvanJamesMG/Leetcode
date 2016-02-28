@@ -1,19 +1,34 @@
 # coding=utf-8
+'''
+Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:
+
+Integers in each row are sorted in ascending from left to right.
+Integers in each column are sorted in ascending from top to bottom.
+For example,
+
+Consider the following matrix:
+
+[
+  [1,   4,  7, 11, 15],
+  [2,   5,  8, 12, 19],
+  [3,   6,  9, 16, 22],
+  [10, 13, 14, 17, 24],
+  [18, 21, 23, 26, 30]
+]
+Given target = 5, return true.
+
+Given target = 20, return false.
+'''
 import collections
-
-
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
         self.left = None
         self.right = None
-
-
 class ListNode(object):
     def __init__(self, x):
         self.val = x
         self.next = None
-
 
 '''
 方法一：O(m + n) 线性搜索
@@ -49,7 +64,6 @@ class Solution(object):
 方法二： 二分查找 O( m * log(n))
 
 遍历每一行，每一行进行二分查找相应的列
-
 '''
 class Solution:
     # @param {integer[][]} matrix
@@ -71,10 +85,3 @@ class Solution:
                 return True
         return False
 
-# Your Codec object will be instantiated and called as such:
-# codec = Codec()
-# codec.deserialize(codec.serialize(root))
-#
-if __name__ == "__main__":
-    result = Solution().canFinish(3, [[0, 2], [2, 1], [1, 0]])
-    print(result)
