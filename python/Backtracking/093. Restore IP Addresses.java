@@ -44,7 +44,7 @@ return ["255.255.11.135", "255.255.111.35"]. (Order does not matter)
     public boolean isValid(String s){  
         if (s.charAt(0)=='0')
             return s.equals("0");  
-            int num = Integer.parseInt(s);
+        int num = Integer.parseInt(s);
             
         if(num <= 255 && num > 0)
             return true;
