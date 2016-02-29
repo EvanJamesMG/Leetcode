@@ -49,6 +49,26 @@ isValid函数，首先int[ ]代表行，这样就避免了每一行出现重复�
 
 最后loc［］里面记录的是解的信息（如果有解）我们把它转换成String, 输出Board即可
 */
+class Solution:
+    # @return a list of lists of string
+    def solveNQueens(self, n):
+        def check(k, j):  # check if the kth queen can be put in column j!
+            for i in range(k):
+                if board[i]==j or abs(k-i)==abs(board[i]-j):
+                    return False
+            return True
+        def dfs(depth, valuelist):
+            if depth==n: res.append(valuelist); return
+            for i in range(n):
+                if check(depth,i): 
+                    board[depth]=i
+                    s='.'*n
+                    dfs(depth+1, valuelist+[s[:i]+'Q'+s[i+1:]])
+        board=[-1 for i in range(n)]
+        res=[]
+        dfs(0,[])
+        return res
+        
 
 public class Solution 
 {
