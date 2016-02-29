@@ -1,6 +1,34 @@
 /*
  N-Queens 问题的变形，只是统计结果的种类，代码更加简单了
 */
+
+#python 版本
+class Solution(object):
+    def totalNQueens(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        def check(k, j):  # check if the kth queen can be put in column j!
+            for i in range(k):
+                if board[i]==j or abs(k-i)==abs(board[i]-j):
+                    return False
+            return True
+        def dfs(depth, valuelist):
+            if depth==n: res.append(valuelist); return
+            for i in range(n):
+                if check(depth,i): 
+                    board[depth]=i
+                    s='.'*n
+                    dfs(depth+1, valuelist+[s[:i]+'Q'+s[i+1:]])
+        board=[-1 for i in range(n)]
+        res=[]
+        dfs(0,[])
+        return len(res)
+
+
+#Java 版本
+'''
 public class Solution 
 {
     private int res=0;
@@ -36,3 +64,4 @@ public class Solution
     }  
 
 }
+'''
