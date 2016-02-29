@@ -21,7 +21,38 @@ There exist two distinct solutions to the 4-queens puzzle:
 ]
 */
 
-/*
+#python 版本
+
+'''
+这类型问题统称为递归回溯问题，也可以叫做对决策树的深度优先搜索（dfs）。
+N皇后问题有个技巧的关键在于棋盘的表示方法，这里使用一个数组就可以表达了。
+比如board=[1, 3, 0, 2]，这是4皇后问题的一个解，意思是：在第0行，皇后放在第1列；在第1行，皇后放在第3列；在第2行，皇后放在第0列；
+在第3行，皇后放在第2列。这道题提供一个递归解法，下道题使用非递归。check函数用来检查在第k行，皇后是否可以放置在第j列。
+'''
+class Solution:
+    # @return a list of lists of string
+    def solveNQueens(self, n):
+        def check(k, j):  # check if the kth queen can be put in column j!
+            for i in range(k):
+                if board[i]==j or abs(k-i)==abs(board[i]-j):
+                    return False
+            return True
+        def dfs(depth, valuelist):
+            if depth==n: res.append(valuelist); return
+            for i in range(n):
+                if check(depth,i): 
+                    board[depth]=i
+                    s='.'*n
+                    dfs(depth+1, valuelist+[s[:i]+'Q'+s[i+1:]])
+        board=[-1 for i in range(n)]
+        res=[]
+        dfs(0,[])
+        return res
+        
+        
+        
+#Java 版本
+'''
 我们把这一题分成几个小问题
 
 1. 传统的dfs递归
@@ -48,28 +79,8 @@ isValid函数，首先int[ ]代表行，这样就避免了每一行出现重复�
 验证对角线，根据对角线性质，长 ＝ 宽 那么我们不难写出 Math.abs(loc[i] - loc[cur]) == (cur - i) 
 
 最后loc［］里面记录的是解的信息（如果有解）我们把它转换成String, 输出Board即可
-*/
-class Solution:
-    # @return a list of lists of string
-    def solveNQueens(self, n):
-        def check(k, j):  # check if the kth queen can be put in column j!
-            for i in range(k):
-                if board[i]==j or abs(k-i)==abs(board[i]-j):
-                    return False
-            return True
-        def dfs(depth, valuelist):
-            if depth==n: res.append(valuelist); return
-            for i in range(n):
-                if check(depth,i): 
-                    board[depth]=i
-                    s='.'*n
-                    dfs(depth+1, valuelist+[s[:i]+'Q'+s[i+1:]])
-        board=[-1 for i in range(n)]
-        res=[]
-        dfs(0,[])
-        return res
-        
-
+'''
+'''
 public class Solution 
 {
 	public ArrayList<String[]> solveNQueens(int n) 
@@ -118,3 +129,4 @@ public class Solution
         res.add(ans);  
     }  
 }
+'''
