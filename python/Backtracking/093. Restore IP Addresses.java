@@ -7,31 +7,7 @@ Given "25525511135",
 
 return ["255.255.11.135", "255.255.111.35"]. (Order does not matter)
 */
-
-
- #python 版本
- 
- class Solution:
-    # @param s, a string
-    # @return a list of strings
-    def restoreIpAddresses(self, s):
-        def dfs(s, sub, ips, ip):
-            if sub == 4:                                        # should be 4 parts
-                if s == '':
-                    ips.append(ip[1:])                          # remove first '.'
-                return
-            for i in range(1, 4):                               # the three ifs' order cannot be changed!
-                if i <= len(s):                                 # if i > len(s), s[:i] will make false!!!!
-                    if int(s[:i]) <= 255:
-                        dfs(s[i:], sub+1, ips, ip+'.'+s[:i])
-                    if s[0] == '0': break                       # make sure that res just can be '0.0.0.0' and remove like '00'
-        ips = []
-        dfs(s, 0, ips, '')
-        return ips
-       
-       
-#Java 版本        
-'''        
+/*
 利用循环递归解决子问题。
 首先我们要明确传统IP 地址的规律是分4个Part，每个Part是从0-255的数字
 
@@ -42,8 +18,7 @@ return ["255.255.11.135", "255.255.111.35"]. (Order does not matter)
 这个过程中要保证的是填的数是合法的，最后拼接的剩余的数也是合法的。
 
  注意开头如果是0的话要特殊处理，如果开头是0，判断整个串是不是0，不是的话该字符就是非法的。因为001，01都是不对的。
- '''    
- '''       
+ */
  public ArrayList<String> restoreIpAddresses(String s) {  
         ArrayList<String> res = new ArrayList<String>();  
         String item = new String();
