@@ -1,23 +1,11 @@
 # coding=utf-8
 '''
-Given a set of distinct integers, nums, return all possible subsets.
+Given a digit string, return all possible letter combinations that the number could represent.
 
-Note:
-Elements in a subset must be in non-descending order.
-The solution set must not contain duplicate subsets.
-For example,
-If nums = [1,2,3], a solution is:
+A mapping of digit to letters (just like on the telephone buttons) is given below.
 
-[
-  [3],
-  [1],
-  [2],
-  [1,2,3],
-  [1,3],
-  [2,3],
-  [1,2],
-  []
-]
+Input:Digit string "23"
+Output: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
 '''
 import sys
 
@@ -34,12 +22,9 @@ class ListNode(object):
         self.val = x
         self.next = None
 
-
 '''
 解题思路：穷举所有可能的字符串使用dfs来解决。
-
 '''
-
 
 class Solution:
     # @return a list of strings, [s1, s2]
