@@ -33,31 +33,18 @@ class Solution(object):
         :type n: int
         :rtype: void Do not return anything, modify nums1 in-place instead.
         """
-        indexA = m-1
-        indexB = n-1
-        while indexA >= 0 and indexB >= 0:
-            if nums1[indexA] > nums2[indexB]:
-                nums1[indexA+indexB+1] = nums1[indexA]
-                indexA -= 1
+        i, j, k = m - 1, n - 1, m + n - 1
+        while i >= 0 and j >= 0:
+            if nums2[j] > nums1[i]:
+                A[k] = nums2[j]
+                j -= 1
             else:
-                nums1[indexA+indexB+1] = nums2[indexB]
-                indexB -= 1
-        while indexB >= 0:
-             nums1[indexA+indexB-1] = nums2[indexB]
-             indexB -= 1
+                A[k] = nums1[i]
+                i -= 1
+            k -= 1
+        while j >= 0:
+            nums1[k] = nums2[j]
+            j -= 1
+            k -= 1
 
-# Your Codec object will be instantiated and called as such:
-# codec = Codec()
-# codec.deserialize(codec.serialize(root))
-#
-if __name__ == "__main__":
-
-    mnode = TreeNode(1)
-    mnode.left = TreeNode(2)
-    mnode.right = TreeNode(3)
-    mnode.left.left = TreeNode(4)
-    mnode.left.right = TreeNode(5)
-
-    result = Solution().isPalindrome('')
-    print(result)
 
