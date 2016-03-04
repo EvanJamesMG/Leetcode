@@ -27,11 +27,12 @@ Here are some examples. Inputs are in the left-hand column and its corresponding
 然后将partition之后的元素逆序排列，即432排列为234，则最后输出的next permutation为15234。确实很巧妙。
 '''
 
-
-class Solution:
-    # @param num, a list of integer
-    # @return a list of integer
+class Solution(object):
     def nextPermutation(self, num):
+        """
+        :type nums: List[int]
+        :rtype: void Do not return anything, modify nums in-place instead.
+        """
         if len(num) <= 1: return 
         partition = -1
         for i in range(len(num) - 2, -1, -1):
@@ -50,12 +51,12 @@ class Solution:
                     break
 
         # reverse
-        left = partition + 1
-        right = len(num) - 1
-        while left < right:
-            num[left], num[right] = num[right], num[left]
-            left += 1
-            right -= 1
+            left = partition + 1
+            right = len(num) - 1
+            while left < right:
+                num[left], num[right] = num[right], num[left]
+                left += 1
+                right -= 1
 # if __name__ == '__main__':
 #     res = Solution().containsNearbyDuplicate([1, 2, 3, 4, 1], 10)
 #     print(res)
