@@ -1,9 +1,13 @@
 # coding=utf-8
 __author__ = 'EvanJames'
 '''
-Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times.
+Given an array of n integers where n > 1, nums, 
 
-The algorithm should run in linear time and in O(1) space.
+return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].
+
+Solve it without division and in O(n).
+
+For example, given [1,2,3,4], return [24,12,8,6].
 '''
 
 
