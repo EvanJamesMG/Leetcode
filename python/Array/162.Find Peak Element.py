@@ -1,6 +1,16 @@
 # coding=utf-8
 import collections
+'''
+A peak element is an element that is greater than its neighbors.
 
+Given an input array where num[i] ≠ num[i+1], find a peak element and return its index.
+
+The array may contain multiple peaks, in that case return the index to any one of the peaks is fine.
+
+You may imagine that num[-1] = num[n] = -∞.
+
+For example, in array [1, 2, 3, 1], 3 is a peak element and your function should return the index number 2.
+'''
 
 class TreeNode(object):
     def __init__(self, x):
@@ -41,13 +51,3 @@ class Solution(object):
                 low = mid + 1
             else:
                 high = mid
-
-
-
-# Your Codec object will be instantiated and called as such:
-# codec = Codec()
-# codec.deserialize(codec.serialize(root))
-#
-if __name__ == "__main__":
-    result = Solution().canFinish(3, [[0, 2], [2, 1], [1, 0]])
-    print(result)
