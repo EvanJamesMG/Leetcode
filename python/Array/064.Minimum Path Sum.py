@@ -1,5 +1,6 @@
 '''
-Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path.
+Given a m x n grid filled with non-negative numbers, 
+find a path from top left to bottom right which minimizes the sum of all numbers along its path.
 
 Note: You can only move either down or right at any point in time.
 '''
@@ -41,6 +42,3 @@ class Solution:
                 dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j]
         return dp[m-1][n-1]
 
-if __name__ == "__main__":
-    result = Solution().nthUglyNumber(12)
-    print(result)
