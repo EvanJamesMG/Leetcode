@@ -18,11 +18,11 @@ Minimize the total number of operations.
 #         self.val = x
 #         self.next = None
 '''
-使用两个"指针"x和y，初始令y = 0
+完成本题需要下面两个步骤
 
-利用x遍历数组nums：
+1）将非0数字依次向前移动
 
-若nums[x]非0，则交换nums[x]与nums[y]，并令y+1
+2）将后面空出的部分全部补0
 '''
 class Solution(object):
     def moveZeroes(self, nums):
@@ -30,9 +30,11 @@ class Solution(object):
         :type nums: List[int]
         :rtype: void Do not return anything, modify nums in-place instead.
         """
-        y = 0
-        for x in range(len(nums)):
-            if nums[x] != 0:
-                nums[x], nums[y] = nums[y], nums[x]
-                y += 1
+        cur = 0
+        for i in range(len(nums)):
+            if nums[i] != 0:
+                nums[cur] = nums[i]
+                cur += 1
 
+        for i in range(cur, len(nums)):
+            nums[i] = 0
