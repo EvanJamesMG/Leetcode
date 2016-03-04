@@ -1,5 +1,12 @@
 # coding=utf-8
+'''
+Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, 
+with the colors in the order red, white and blue.
+Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.
 
+Note:
+You are not suppose to use the library's sort function for this problem.
+'''
 # class TreeNode(object):
 #     def __init__(self, x):
 #         self.val = x
@@ -32,13 +39,3 @@ class Solution:
                 i += 1
             else:
                 i += 1
-
-# Your Codec object will be instantiated and called as such:
-# codec = Codec()
-# codec.deserialize(codec.serialize(root))
-#
-# if __name__ == "__main__":
-#
-#     result = Solution().kmp_match("BBC ABCDAB ABCDABCDABDE", "BCDABCD")
-#     print(result)
-#
