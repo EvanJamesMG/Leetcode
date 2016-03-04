@@ -14,12 +14,15 @@ class Solution(object):
         :type val: int
         :rtype: int
         """
-        reslist = []
+        if nums==None or len(nums)==0:
+            return -1
+        newindex = 0
         for i in range(len(nums)):
-            if  nums[i] != val:
-                reslist.append(nums[i])
-        nums[0:len(reslist)-1] = reslist
-        return len(reslist)
+            if nums[i]!=val:
+                nums[newindex]=nums[i]
+                newindex +=1
+        return newindex
+
 
 if __name__ == '__main__':
     res = Solution().containsNearbyDuplicate([1, 2, 3, 4, 1], 10)
