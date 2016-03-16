@@ -25,6 +25,9 @@ dict中每个单词只能用一次, 所以用过即删。dict给的是set类型,
 设单词长度为L, dict里有N个单词, 每次扫一遍dict判断每个单词是否与当前单词只差一个字母的时间复杂度是O(N*L), 
 
 而每次变换当前单词的一个字母, 看变换出的词是否在dict中的时间复杂度是O(26*L), 所以要选择后者。
+
+
+参考http://www.programcreek.com/2012/12/leetcode-word-ladder/ 秒懂
 '''
 class Solution(object):
     def ladderLength(self, beginWord, endWord, wordList):
